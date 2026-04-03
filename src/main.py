@@ -13,7 +13,7 @@ def visualize_with_colors(original_points, fake_points):
     all_points = np.vstack((original_points, fake_points))
 
     # Creating colors
-    original_colors = np.tile([0.5, 0.5, 0.5], (original_points.shape[0], 1)) # gray color
+    original_colors = np.tile([0.5, 0.5, 0.5], (original_points.shape[0], 1))  # gray color
     fake_colors = np.tile([1.0, 0.0, 0.0], (fake_points.shape[0], 1))  # red color
     all_colors = np.vstack((original_colors, fake_colors))
 
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     # Visualize original and fake points with colors
     visualize_with_colors(original_points, fake_points)
     # Visualize original scene
-    #visualize_points(original_points, title="Original Point Cloud")
+    # visualize_points(original_points, title="Original Point Cloud")
 
     # Visualize attacked scene
-    #visualize_points(attacked_points, title="Attacked Point Cloud")
+    # visualize_points(attacked_points, title="Attacked Point Cloud")
