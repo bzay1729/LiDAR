@@ -15,7 +15,7 @@ def generate_fake_points(box: dict, num_points: int = 200) -> np.ndarray:
 
 
 # Creating denser cluster like object (Structured points looks more like object than random points.)
-def generate_cluster_points(center, size=1.0, num_points=300):
+def generate_cluster_points(center, size=1.0, num_points=500):
     """
     Generate clustered fake points around a center.
     """
