@@ -73,4 +73,33 @@ This baseline setup will be extended in later steps to:
 - Visualization confirms successful injection of adversarial points.
 
 ---
-## Next Section would be fake points look like structured attack (Enhanced version)
+
+## Step 6: Structured Fake Point Injection
+- Replaced random point generation with clustered distribution.
+- Generated fake points around a defined center using a gaussian distribution.
+- This helps to create a dense, object-like cluster.
+### Observation
+- Fake points now form a compact structure.
+- The cluster resembles a potential object rather than random noise.
+- This improves the realism of the attack.
+### Interpretation
+- Structured fake points are more likely to influence object detection models.
+- This step is closer to an optimized adversarial attack.
+
+---
+
+## Step 7: Choosing Best Location Automatically & Optimization
+- Implemented simple search-based optimization to automatically select a fake-point location.
+- Evaluated multiple candidate centers within a realistic region in front of the LiDAR.
+- Used a compactness-based scoring function to prefer tighter fake clusters.
+### Observation
+- Manual attacking location is no longer needed.
+- Fake point cluster is now generated at an automatically selected position.
+- This establishes the first optimization-based version of the attack.
+### Interpretation
+- This optimization is currently based on proxy objective rather than detector outputs.
+- It serves as a baseline for upcoming/future detector-aware optimization.
+
+---
+
+### Step 8: 
