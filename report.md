@@ -104,17 +104,27 @@ This baseline setup will be extended in later steps to:
 
 ## Step 8: Attack-Aware Optimization (Smart Optimization)
 
-- Improved the optimization strategy to consider interaction with the real LiDAR scene instead of only cluster compactness
-- For each candidate location, generated a clustered set of fake points
-- Computed the distance from each fake point to the nearest real point
-- Selected the location that minimizes this distance as the optimal attack position
+- Improved the optimization strategy to consider interaction with the real LiDAR scene instead of only cluster compactness.
+- For each candidate location, generated a clustered set of fake points.
+- Computed the distance from each fake point to the nearest real point.
+- Selected the location that minimizes this distance as the optimal attack position.
 
 ### Observation
-- The optimized fake cluster is positioned close to existing scene structures
-- Fake points are no longer isolated and instead overlap meaningful regions of the point cloud
+- The optimized fake cluster is positioned close to existing scene structures.
+- Fake points are no longer isolated and instead overlap meaningful regions of the point cloud.
 
 ### Interpretation
-- Placing fake points near real structures increases the likelihood of interfering with LiDAR-based perception
-- This approach is more realistic and effective compared to random or compact-only placement
+- Placing fake points near real structures increases the likelihood of interfering with LiDAR-based perception.
+- This approach is more realistic and effective compared to random or compact-only placement.
 
 ---
+
+## Step 8.1: Export of Attacked Point Cloud
+
+- Converted the attacked point cloud into KITTI-compatible binary format.
+- Added an intensity column with zero values to match KITTI structure (x, y, z, intensity).
+- Saved the modified scene as a new `.bin` file for detector-based evaluation.
+
+---
+
+## Next Step in Google Colab

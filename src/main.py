@@ -5,6 +5,9 @@ from load_kitti import load_kitti_bin
 from inject_fake_points import inject_fake_points
 from optimize_location import find_best_location
 
+from save_attacked_bin import save_kitti_bin
+
+
 
 def visualize_with_colors(original_points, fake_points, title="Attack-Aware Optimized Fake Point Injection"):
     """
@@ -55,6 +58,9 @@ if __name__ == "__main__":
     print("Best score:", best_score)
     print("Fake points shape:", fake_points.shape)
     print("Attacked point cloud shape:", attacked_points.shape)
+
+    # Save attacked points cloud as KITTI-format .bin
+    save_kitti_bin(attacked_points, "../data/attacked_000000.bin")
 
     #  Visualize
     visualize_with_colors(
