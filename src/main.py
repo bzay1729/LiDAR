@@ -34,7 +34,7 @@ def visualize_with_colors(original_points, fake_points, title="Attack-Aware Opti
 
 if __name__ == "__main__":
     # Load original LiDAR frame
-    file_path = "../data/000000.bin"
+    file_path = "../data/original.bin"
     original_points = load_kitti_bin(file_path)
 
     print("Original point cloud shape:", original_points.shape)
@@ -62,9 +62,16 @@ if __name__ == "__main__":
     # Save attacked points cloud as KITTI-format .bin
     save_kitti_bin(attacked_points, "../data/attacked_000000.bin")
 
+    # Verify saved file
+    saved_check = np.fromfile("../data/attacked_000000.bin", dtype=np.float32).reshape(-1, 4)
+    print("Reloaded saved attacked bin shape:", saved_check.shape)
+    print("First 5 saved points:\n", saved_check[:5])
+
     #  Visualize
     visualize_with_colors(
         original_points=original_points,
         fake_points=fake_points,
         title="Attack-Aware Optimized Fake Point Injection"
     )
+
+

@@ -127,4 +127,42 @@ This baseline setup will be extended in later steps to:
 
 ---
 
-## Next Step in Google Colab
+## Step 9: Local Region Impact Analysis (This is done in Jupyter Notebook)
+
+To evaluate the effectiveness of the optimized fake point injection, a local region analysis was performed around the attack center.
+
+### Method
+- Selected a spherical region centered at the optimized attack location
+- Compared point density between original and attacked point clouds
+- Visualized cropped regions using Open3D
+- Measured spatial statistics including bounding box and point count
+
+### Observation
+
+- Point density increased significantly in the attack region:
+  - At radius 2.0:
+    - Original: 1188 points
+    - Attacked: 1677 points
+    - Increase: +489 points
+
+- The increase closely matches the number of injected fake points (500)
+
+- Visualization shows:
+  - Original region contains structured LiDAR scan patterns
+  - Attacked region contains a dense artificial cluster overlapping real structure
+
+- Spatial extent changed:
+  - Height (z-axis) increased noticeably
+  - Region became denser and more volumetric
+
+### Interpretation
+
+- The fake points were successfully concentrated in a meaningful region of the scene
+- Instead of forming a separate object, the attack alters an existing structure
+- This distortion changes the geometric representation of the scene
+
+### Conclusion
+
+- The optimized attack effectively modifies the local LiDAR geometry
+- The attack is spatially targeted and not random
+- This demonstrates the ability to mislead LiDAR-based perception by altering benign regions
